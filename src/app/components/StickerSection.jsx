@@ -20,8 +20,7 @@ function StickerSection() {
       >
         <motion.div
           drag
-          dragConstraints={constraintsRef}
-          dragControls={controls} // Apply drag controls here
+          dragControls={controls}
           dragElastic={0.1}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -47,14 +46,14 @@ function StickerSection() {
           dragControls={controls} // Apply drag controls here
           dragElastic={0.1}
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.95 }}
           style={{ position: "absolute", top: 0, left: 0 }}
           className="dino-container"
         >
           <Image
             src="/images/dino-2.png"
-            width={220}
-            height={220}
+            width={190}
+            height={190}
             style={{
               pointerEvents: "none",
               width: "100%",
