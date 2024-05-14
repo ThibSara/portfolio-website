@@ -20,6 +20,7 @@ module.exports = {
       primary:colors.violet,
       secondary:colors.fuchsia,
       background : colors.black,
+      subtitle : "#d1cfcf",
     }
   },
   plugins: [],
