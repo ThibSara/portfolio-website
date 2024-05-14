@@ -8,6 +8,15 @@ import Link from "next/link";
 const HeroSection = () => {
   const controls = useDragControls();
 
+  const getImageSize = () => {
+    const screenWidth = window.innerWidth;
+    let imageSize = 115;
+    if (screenWidth >= 1024) {
+      imageSize = 300;
+    }
+    return imageSize;
+  };
+  const imageSize = getImageSize();
   return (
     <section className="lg:py-16">
       <motion.div>
@@ -52,7 +61,7 @@ const HeroSection = () => {
                 href="/"
                 className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-primary-300 hover:bg-slate-900 text-white mt-3"
               >
-                <span className="block bg-[#121212] hover:bg-slate-900 rounded-full px-5 py-2 ">
+                <span className="block bg-background hover:bg-slate-900 rounded-full px-5 py-2 ">
                   Download CV
                 </span>
               </Link>
@@ -64,13 +73,13 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="col-span-4 place-self-center mt-4 lg:mt-0"
           >
-            <div className="rounded-full bg-[#171718] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+            <div className="rounded-full bg-[#171718] w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] relative">
               <div style={{ position: "relative", top: "15%", left: "15%" }}>
                 <Image
                   src="/images/placeholder-2.png"
                   className="bg"
-                  width={303}
-                  height={303}
+                  width={imageSize + 5}
+                  height={imageSize + 5}
                   style={{ position: "absolute", top: 0, left: 0 }}
                 />
                 <motion.div
@@ -79,12 +88,12 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ position: "absolute", top: 5, left: 7 }}
+                  style={{ position: "absolute", top: 0, left: 0 }}
                 >
                   <Image
                     src="/images/dino-2.png"
-                    width={290}
-                    height={290}
+                    width={imageSize}
+                    height={imageSize}
                     style={{
                       pointerEvents: "none",
                       objectFit: "fill",

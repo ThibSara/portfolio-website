@@ -19,6 +19,7 @@ module.exports = {
       ...colors,
       primary:colors.violet,
       secondary:colors.fuchsia,
+      background : colors.black,
     }
   },
   plugins: [],
