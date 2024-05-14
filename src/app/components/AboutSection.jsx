@@ -9,15 +9,15 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Python</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>C#</li>
-        <li>NoSQL</li>
-        <li>blender</li>
-        <li>figma</li>
+      <ul className="list-disc pl-2 flex flex-wrap">
+        <li className="w-1/3">Node.js</li>
+        <li className="w-1/3">Python</li>
+        <li className="w-1/3">JavaScript</li>
+        <li className="w-1/3">React</li>
+        <li className="w-1/3">C#</li>
+        <li className="w-1/3">NoSQL</li>
+        <li className="w-1/3">Blender</li>
+        <li className="w-1/3">Figma</li>
       </ul>
     ),
   },
@@ -31,7 +31,7 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "Education",
+    title: "education",
     id: "education",
     content: (
       <ul className="list-disc pl-2">
@@ -42,7 +42,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("certification");
+  const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -52,26 +52,27 @@ const AboutSection = () => {
   };
   const getImageSize = () => {
     const screenWidth = window.innerWidth;
-    let imageSize = 125;
+    let imageSize = 80;
     if (screenWidth >= 1024) {
-      imageSize = 300;
+      imageSize = 120;
     }
     return imageSize;
   };
   const imageSize = getImageSize();
   return (
     <section className="text-white">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-4">
-        <div className="row flex  items-center justify-center justify-lg-between xl:gap-24">
+      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-16 xl:px-4">
+        <div className=" py-3 row  flex  items-center justify-center justify-lg-between xl:gap-24">
           <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mb-lg-0">
             <Image
               src="/images/placeholder-4.png"
-              width={100}
-              height={100}
+              width={imageSize}
+              height={imageSize}
               style={{
                 pointerEvents: "none",
                 objectFit: "fill",
                 position: "absolute",
+                transform: "translate(0px, -100px)",
               }}
               className="dino"
             />
@@ -80,17 +81,15 @@ const AboutSection = () => {
               dragElastic={0.1}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              style={{ position: "relative", top: 0, left: 0 }}
+              style={{ position: "relative", top: -90, left: 10 }}
               className="dino-container"
             >
               <Image
                 src="/images/dino-3.png"
-                width={150}
-                height={150}
+                width={imageSize}
+                height={imageSize}
                 style={{
                   pointerEvents: "none",
-                  width: "100%",
-                  height: "100%",
                 }}
                 className="dino"
               />
@@ -99,12 +98,13 @@ const AboutSection = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mb-lg-0">
             <Image
               src="/images/placeholder-4.png"
-              width={100}
-              height={100}
+              width={imageSize}
+              height={imageSize}
               style={{
                 pointerEvents: "none",
                 objectFit: "fill",
                 position: "absolute",
+                transform: "translate(0px, 30px)",
               }}
               className="dino"
             />
@@ -113,17 +113,15 @@ const AboutSection = () => {
               dragElastic={0.1}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              style={{ position: "relative", top: 0, left: 0 }}
+              style={{ position: "relative", top: 40, left: 0 }}
               className="dino-container"
             >
               <Image
                 src="/images/dino-3.png"
-                width={150}
-                height={150}
+                width={imageSize}
+                height={imageSize}
                 style={{
                   pointerEvents: "none",
-                  width: "100%",
-                  height: "100%",
                 }}
                 className="dino"
               />
@@ -132,12 +130,13 @@ const AboutSection = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mb-lg-0">
             <Image
               src="/images/placeholder-4.png"
-              width={100}
-              height={100}
+              width={imageSize}
+              height={imageSize}
               style={{
                 pointerEvents: "none",
                 objectFit: "fill",
                 position: "absolute",
+                transform: "translate(0px, -80px)",
               }}
               className="dino"
             />
@@ -146,17 +145,15 @@ const AboutSection = () => {
               dragElastic={0.1}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              style={{ position: "relative", top: 0, left: 0 }}
+              style={{ position: "relative", top: -90, left: 0 }}
               className="dino-container"
             >
               <Image
                 src="/images/dino-4.png"
-                width={150}
-                height={150}
+                width={imageSize}
+                height={imageSize}
                 style={{
                   pointerEvents: "none",
-                  width: "100%",
-                  height: "100%",
                 }}
                 className="dino"
               />
@@ -165,7 +162,7 @@ const AboutSection = () => {
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full ">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className=" text-base lg:text-lg">
+          <p className=" text-base text-subtitle lg:text-lg">
             {" "}
             I'm a French AI and Data Science engineering student, graduating in
             2025. Recently, I discovered a passion for UX and web development,
@@ -183,13 +180,13 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("education")}
               active={tab === "education"}
             >
-              education
+              Education
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("certification")}
               active={tab === "certification"}
             >
-              certification
+              Certification
             </TabButton>
           </div>
           <div className={"mt-8"}>
