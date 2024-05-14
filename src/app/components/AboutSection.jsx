@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useTransition } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import Image from "next/image";
 import { TabButton } from "./TabButton";
 import { motion, useDragControls } from "framer-motion";
@@ -50,15 +50,25 @@ const AboutSection = () => {
       setTab(id);
     });
   };
-  const getImageSize = () => {
-    const screenWidth = window.innerWidth;
+  const [screenWidth, setScreenWidth] = useState(0);
 
-    let imageSize = 80;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+      const handleResize = () => setScreenWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  const getImageSize = () => {
+    let imageSize = 115;
     if (screenWidth >= 1024) {
-      imageSize = 120;
+      imageSize = 300;
     }
     return imageSize;
   };
+
   const imageSize = getImageSize();
   return (
     <section className="text-white">

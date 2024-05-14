@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useDragControls } from "framer-motion";
@@ -8,14 +8,25 @@ import Link from "next/link";
 const HeroSection = () => {
   const controls = useDragControls();
 
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+      const handleResize = () => setScreenWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
   const getImageSize = () => {
-    const screenWidth = window.innerWidth;
     let imageSize = 115;
     if (screenWidth >= 1024) {
       imageSize = 300;
     }
     return imageSize;
   };
+
   const imageSize = getImageSize();
   return (
     <section className="lg:py-16">
