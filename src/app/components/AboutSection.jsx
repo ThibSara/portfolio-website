@@ -51,11 +51,8 @@ const AboutSection = () => {
     });
   };
   const getImageSize = () => {
-<<<<<<< HEAD
     const screenWidth = window.innerWidth;
-=======
-    const screenWidth = 1024;
->>>>>>> 50e0c4858ef2b4e5e7ec62ccd09674662e0ee6f7
+
     let imageSize = 80;
     if (screenWidth >= 1024) {
       imageSize = 120;

@@ -9,7 +9,7 @@ const HeroSection = () => {
   const controls = useDragControls();
 
   const getImageSize = () => {
-    const screenWidth = 1024;
+    const screenWidth = window.innerWidth;
     let imageSize = 115;
     if (screenWidth >= 1024) {
       imageSize = 300;
